@@ -35,7 +35,7 @@ I am using URL Params to identify whether I am currently playing a song or reque
 
 The URL below gives the current song I am playing, if I am, of course!
 
-[https://4tiumvx0uh.execute-api.eu-west-2.amazonaws.com/what-im-listening?preference=nowPlaying](https://4tiumvx0uh.execute-api.eu-west-2.amazonaws.com/what-im-listening?preference=nowplaying)
+[https://4tiumvx0uh.execute-api.eu-west-2.amazonaws.com/what-im-listening?preference=nowPlaying](https://4tiumvx0uh.execute-api.eu-west-2.amazonaws.com/what-im-listening?preference=nowPlaying)
 
 This one, on the other hand, will give the most recent piece.
 
