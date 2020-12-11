@@ -33,7 +33,7 @@ axios.post({
 
 I am using URL Params to identify whether I am currently playing a song or request the most recent music I played.
 
-The URL below gives the current song I am playing, if I am, of course!
+The URL below gives the current song I am playing, if I am, of course! Otherwise, it will return false.
 
 [https://4tiumvx0uh.execute-api.eu-west-2.amazonaws.com/what-im-listening?preference=nowPlaying](https://4tiumvx0uh.execute-api.eu-west-2.amazonaws.com/what-im-listening?preference=nowPlaying)
 
