@@ -1,0 +1,9 @@
+{
+  "name": "lambda-spotify",
+  "version": "1.0.0",
+  "description": "Lambda Function to display (the most recent song || now playing song) from Spotify",
+  "main": "index.js",
+  "repository": "https://github.com/gokhj/lambda-spotify.git",
+  "author": "<gokhanarkan@gmail.com>",
+  "license": "MIT"
+}
