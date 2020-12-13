@@ -16,7 +16,13 @@ For apps that use the Spotify API, users are required to login once every 60 min
 
 I have listed two ways to generate this token. The refresh tokens never expire unless the user revokes it.
 
-#### 1. Hard Way
+#### 1. Easy way
+
+I've created an automated script `refresh_token.rb` within the `./scripts/` directory. It's a terminal-based application where you can input the required info and retrieve the necessary token.
+
+Ruby not installed on your machine? [Here I added this to repl.it.](https://repl.it/@gokh/spotifyrefreshtoken#main.rb)
+
+#### 2. Hard Way
 
 Authenticate your application with the app's client id. The client id and client secret can be retrieved from the Spotify Developer Dashboard at any time.
 
@@ -43,12 +49,6 @@ axios.post({
     "grant_type=authorization_code&code={AUTH_CODE}&redirect_uri=http%3A%2F%2Flocalhost%3A4567",
 });
 ```
-
-#### 2. Easy way
-
-I've created an automated script `refresh_token.rb` within the `./scripts/` directory. It's a terminal-based application where you can input the required info and retrieve the necessary token.
-
-Ruby not installed on your machine? [Here I added this to repl.it.](https://repl.it/@gokh/spotifyrefreshtoken#main.rb)
 
 ## Demo
 
