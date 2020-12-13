@@ -23,7 +23,7 @@ def open_browser(url)
 end
 
 
-def get_refresh_token(authorization, data)
+def refresh_token(authorization, data)
   # Client
   uri = URI('https://accounts.spotify.com/api/token')
   http = Net::HTTP.new(uri.host, uri.port)
@@ -40,7 +40,8 @@ def get_refresh_token(authorization, data)
 
   #  Fetch
   res = http.request(req)
-  JSON.parse(res.body)
+  token = JSON.parse(res.body)
+  token['refresh_token']
 rescue StandardError => e
   puts "HTTP Request failed (#{e.message})"
   false
@@ -71,20 +72,20 @@ def command_line
 
   unless code
     puts "\nCode is not available. Please restart the process."
-    puts "Also, don't forget to add the redirect uri to your application."
+    puts "Also, don't forget to add the redirect uri (http://localhost:4567) to your application."
     exit
   end
 
   data = {
-    "grant_type" => "authorization_code",
-    "code" => code,
-    "redirect_uri" => "http://localhost:4567"
+    grant_type: "authorization_code",
+    code: code,
+    redirect_uri: "http://localhost:4567"
   }
 
-  res = get_refresh_token(authorization, data)
-  if res
+  token = refresh_token(authorization, data)
+  if token
     puts "\nHere is your refresh token!"
-    puts res["refresh_token"]
+    puts token
   end
   exit
 end
