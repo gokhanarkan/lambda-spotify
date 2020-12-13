@@ -15,11 +15,8 @@ end
 
 
 def open_browser(url)
-  begin
-    system("open", url)
-  rescue
-    puts "If the browser didn't start, use this url: #{url}"
-  end
+  system("open", url)
+  puts "\nIf the browser didn't start, use this url: #{url}"
 end
 
 
@@ -40,10 +37,13 @@ def refresh_token(authorization, data)
 
   #  Fetch
   res = http.request(req)
+  unless res.code == "200"
+    raise StandardError.new "The authorization code is not accepted."
+  end
   token = JSON.parse(res.body)
   token['refresh_token']
 rescue StandardError => e
-  puts "HTTP Request failed (#{e.message})"
+  puts "\nHTTP Request failed (#{e.message})"
   false
 end
 
@@ -65,7 +65,7 @@ def command_line
 
   open_browser(url)
 
-  puts "Paste the redirected url after authorising the app in your browser."
+  puts "\nPaste the redirected url after authorising the app in your browser."
 
   callback = gets.chomp
   code = callback.split('?code=')[1]
